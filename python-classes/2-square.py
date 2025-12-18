@@ -3,6 +3,7 @@
 
 
 class Square:
+    __size = 3
     """This class defines a square"""
     def __init__(self, size=0):
         """This function checks type validation"""
