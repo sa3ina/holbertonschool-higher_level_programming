@@ -2,7 +2,7 @@
 """This module represents Square"""
 
 
-Square = __import__('10-square').Square
+Square = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
@@ -13,6 +13,7 @@ class Square(Rectangle):
 
         self.integer_validator("size", size)
         self.__size = size
+        super().__init__(size, size)
 
     def area(self):
         """This function calculates area of square"""
