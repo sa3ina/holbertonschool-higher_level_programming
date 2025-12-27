@@ -34,7 +34,7 @@ class Rectangle(Shape):
 
 def shape_info(shape):
     print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.rectangle()}")
+    print(f"Perimeter: {shape.perimeter()}")
 
 if __name__ == "__main__":
     c = Circle(5)
