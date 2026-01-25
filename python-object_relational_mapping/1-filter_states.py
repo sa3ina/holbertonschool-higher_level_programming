@@ -29,7 +29,8 @@ if __name__ == "__main__":
 
     cursor.execute(query)
 
-    for row in cursor.fetchall():
+    # Streaming version – critical for large datasets
+    for row in cursor:
         print(row)
 
     cursor.close()
