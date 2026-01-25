@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Displays all values in the states table of hbtn_0e_0_usa
-where name matches the given argument (safe from SQL injection using format)
+where name matches the given argument
 """
 import MySQLdb
 import sys
@@ -23,8 +23,8 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    # Using format() — exactly what the task requires
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(search_name)
+    query = "SELECT * FROM states WHERE name = '{}'
+    ORDER BY id ASC".format(search_name)
     cur.execute(query)
 
     for row in cur.fetchall():
