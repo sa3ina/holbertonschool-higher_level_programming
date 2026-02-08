@@ -1,28 +1,29 @@
-from flask import Flask, render_template, json
+#!/usr/bin/python3
+from flask import Flask, render_template
+import json
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def home():
-    return render_template("index.html")
+    return render_template('index.html')
 
-@app.route("/about")
+@app.route('/about')
 def about():
-    return render_template("about.html")
+    return render_template('about.html')
 
-@app.route("/contact")
+@app.route('/contact')
 def contact():
-    return render_template("contact.html")
+    return render_template('contact.html')
 
-@app.route("/items")
+@app.route('/items')
 def items():
-    try:
-        with open('items.json', 'r') as f:
-            data = json.load(f)
-            items_list = data.get("items", [])
-    except FileNotFoundError:
-        items_list=[]
-    return render_template("items.html", items=items_list)
+    items = []
+    with open('items.json', 'r') as f:
+        dicti = json.load(f)
+        for item in dicti.get("items", []):
+            items.append(item)
+    return render_template('items.html', items=items)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True, port=5000)
